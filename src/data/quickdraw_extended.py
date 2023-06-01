@@ -19,7 +19,7 @@ from data.data_utils import *
 
 def QuickDraw_Extended(args, transform='None'):
     # Getting the classes
-    class_labels_file = os.path.join(args.data_path, 'quick_draw_125', 'class_labels.txt')
+    class_labels_file = os.path.join(args.data_path, 'quick_label.txt')
     list_class = open(class_labels_file).read().splitlines()
     dicts_class = create_dict_texts(list_class)
 
@@ -28,15 +28,15 @@ def QuickDraw_Extended(args, transform='None'):
 
     # Create the class embeddings
     if os.path.isfile('./data/semantic_labels_sketchy.npy'):
-        class_emb = np.load('./data/semantic_labels_quickdraw.npy')
-        with open("./data/vocab_quickdraw.pkl", "rb") as input_file:
+        class_emb = np.load('./data/semantic_labels_quickdraw_extend.npy')
+        with open("./data/vocab_quickdraw_extend.pkl", "rb") as input_file:
             vocab = pickle.load(input_file)
     else:
         class_emb = create_class_embeddings(list_class, args.dataset)
         vocab = list_class
 
     # Read test classes
-    with open("../data/zeroshot_classes_quickdraw.txt") as fp:
+    with open("./data/zeroshot_classes_quickdraw.txt") as fp:
         test_class = fp.read().splitlines()
 
     list_class = [x for x in list_class if x not in test_class]

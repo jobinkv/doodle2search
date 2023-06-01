@@ -13,7 +13,7 @@ parse_section()
     [[ "${line% =*}" == "$param" ]] && { echo "${line#*= }"; break; }
   done
 }
-path_dataset=$(parse_section $HOSTNAME path_dataset < ./config.ini)
+path_dataset='/ssd_scratch/cvit/jobinkv' #$(parse_section $HOSTNAME path_dataset < ./config.ini)
 if [[ ! -d $path_dataset ]]; then
   mkdir $path_dataset
 fi

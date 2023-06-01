@@ -4,7 +4,7 @@
 from PIL import Image
 import PIL.ImageChops
 import os
-
+from ipdb import set_trace as st
 import cv2
 import glob
 import numpy as np
@@ -56,6 +56,7 @@ def get_file_list(dir_skim, class_list, skim='sketch'):
 def get_random_file_from_path(file_path):
     _ext='*.jpg'
     f_list = glob.glob(os.path.join(file_path, _ext))
+    # print(file_path, len(f_list))
     return np.random.choice(f_list,1)[0]
 
 

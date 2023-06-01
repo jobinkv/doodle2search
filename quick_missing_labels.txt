@@ -1,0 +1,6 @@
+axe
+eiffel_tower
+hot-air_balloon
+soccer_ball
+wine_bottle
+cruise_ship
