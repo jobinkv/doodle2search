@@ -172,12 +172,12 @@ def main():
     _, [valid_sk_data, valid_im_data], [test_sk_data, test_im_data], dict_class = load_data(args, transform)
 
     valid_sk_loader = DataLoader(valid_sk_data, batch_size=3 * args.batch_size, num_workers=args.prefetch,
-                                 pin_memory=True)
-    valid_im_loader = DataLoader(valid_im_data, batch_size=3 * args.batch_size, num_workers=args.prefetch,
-                                 pin_memory=True)
-    test_sk_loader = DataLoader(test_sk_data, batch_size=3 * args.batch_size, num_workers=args.prefetch,
                                 pin_memory=True)
-    test_im_loader = DataLoader(test_im_data, batch_size=3 * args.batch_size, num_workers=args.prefetch,
+    valid_im_loader = DataLoader(valid_im_data, batch_size=3 * args.batch_size, num_workers=args.prefetch,
+                                pin_memory=True)
+    test_sk_loader = DataLoader(valid_sk_data, batch_size=3 * args.batch_size, num_workers=args.prefetch,
+                                pin_memory=True)
+    test_im_loader = DataLoader(valid_im_data, batch_size=3 * args.batch_size, num_workers=args.prefetch,
                                 pin_memory=True)
 
     print('Create model')
